@@ -17,6 +17,13 @@ io.on('connection', (socket) => {
 
     // Ping event
     socket.on('_ping', data => {
+
+      // Contains uuid
+      if (data.uuid) {
+        console.log(`User's uuid is ${data.uuid}`);
+        socket.uuid = data.uuid;
+      }
+
       // Reply with same data
       let reply = {data: data.data};
 
